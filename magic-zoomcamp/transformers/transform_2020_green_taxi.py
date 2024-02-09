@@ -19,6 +19,10 @@ def transform(data, *args, **kwargs):
     # data['lpep_pickup_datetime'] = pd.to_datetime(data['lpep_pickup_datetime'])
     data['lpep_pickup_date'] = pd.to_datetime(data['lpep_pickup_datetime']).dt.date
 
+    # 
+    distinct_values = data['VendorID'].unique()
+    print("Distinct VendorID: ", distinct_values)
+
     #
     data.rename(columns={
         'VendorID': 'vendor_id',
